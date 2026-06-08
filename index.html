@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Star Wars Trivia AI — an infinite, level-based Star Wars trivia game powered by SWAPI."
+    />
+    <title>Star Wars Trivia AI</title>
+  </head>
+  <body>
+    <!-- Hyperspace warp background (full-screen canvas, loops forever) -->
+    <canvas id="hyperspace" aria-hidden="true"></canvas>
+
+    <!-- Lightsaber cursor follower -->
+    <div id="saber" aria-hidden="true">
+      <div class="saber-hilt"></div>
+      <div class="saber-blade"></div>
+    </div>
+
+    <!-- Gold streak frame overlay (shown at streak >= 6) -->
+    <div id="streak-frame" aria-hidden="true"></div>
+
+    <main id="app">
+      <!-- Start screen -->
+      <section id="screen-start" class="screen">
+        <h1 class="logo">STAR WARS</h1>
+        <h2 class="subtitle">TRIVIA <span class="ai">AI</span></h2>
+        <p class="tagline">
+          A galaxy of questions awaits. Answer 10 per round. Score 6+ to ascend,
+          fall below 4 and you descend. May the Force be with you.
+        </p>
+        <button id="btn-start" class="btn-primary">BEGIN TRIAL</button>
+        <p class="hint">Powered by SWAPI · Padawan → Jedi → Jedi Master</p>
+      </section>
+
+      <!-- Game screen -->
+      <section id="screen-game" class="screen hidden">
+        <header class="hud">
+          <div class="hud-item">
+            <span class="hud-label">RANK</span>
+            <span id="hud-level" class="hud-value">Padawan</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">QUESTION</span>
+            <span id="hud-progress" class="hud-value">1 / 10</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">ROUND SCORE</span>
+            <span id="hud-score" class="hud-value">0</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">STREAK</span>
+            <span id="hud-streak" class="hud-value">0</span>
+          </div>
+        </header>
+
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <div class="question-card">
+          <p id="question-category" class="question-category"></p>
+          <h3 id="question-text" class="question-text">Loading the archives…</h3>
+          <div id="choices" class="choices"></div>
+          <p id="feedback" class="feedback"></p>
+        </div>
+      </section>
+
+      <!-- Round summary screen -->
+      <section id="screen-summary" class="screen hidden">
+        <h2 id="summary-title" class="summary-title">Round Complete</h2>
+        <p id="summary-score" class="summary-score"></p>
+        <p id="summary-verdict" class="summary-verdict"></p>
+        <button id="btn-next" class="btn-primary">NEXT ROUND</button>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
