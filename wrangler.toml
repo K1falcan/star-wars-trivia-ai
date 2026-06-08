@@ -1,3 +1,4 @@
 name = "star-wars-trivia-ai"
 compatibility_date = "2026-06-08"
 pages_build_output_dir = "dist"
+directory = "./dist"
